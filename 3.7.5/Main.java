@@ -15,9 +15,9 @@ public class Main {
         }
     }
 
-    for (Book book : books) {
-        if (book.getTitle().equals(bookToFind)) {
-            minimumRating = book.getRating();
+    for (int i = 0; i < books.size(); i++) {
+        if (books.get(i).getTitle().equals(bookToFind)) {
+            minimumRating = books.get(i).getRating();
         }
     }
   }
