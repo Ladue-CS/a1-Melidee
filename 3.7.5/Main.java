@@ -20,5 +20,6 @@ public class Main {
             minimumRating = books.get(i).getRating();
         }
     }
+    System.out.println(minimumRating);
   }
 }
