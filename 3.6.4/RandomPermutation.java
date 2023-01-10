@@ -1,3 +1,4 @@
+
 /**********************************************************************
  * Sample solution for Activity 3.6.4
  **********************************************************************/
@@ -16,8 +17,27 @@ public class RandomPermutation {
      * Initial conditions: length cannot be negative
      */
     public static ArrayList<Horse> next(ArrayList<Horse> list) {
-        Collections.shuffle(list);
-        return list;
+        ArrayList<Horse> newHorses = new ArrayList<Horse>();
+        int[] randomNumbers = ogRandomPerm(list.size() - 1);
+        
+        for (int n : randomNumbers) {
+            newHorses.add(list.get(n));
+        }
+        return newHorses;
     }
 
+    private static int[] ogRandomPerm(int length) {
+        int[] r = new int[length];
+        int[] p = new int[length];
+
+        for (int i = 0; i < length; i++)
+            p[i] = i + 1;
+
+        for (int n = length; n > 0; n--) {
+            int pos = (int) (Math.random() * n);
+            r[n - 1] = p[pos];
+            p[pos] = p[n - 1];
+        }
+        return r;
+    }
 }
